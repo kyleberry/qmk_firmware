@@ -10,3 +10,5 @@ Just guessing on initial personal preference, much of this will likely change.
 * Removed all the game things from L3, not sure how useful this will be to me but I don't need that
 * L3 has 10-key on it now, made more sense for this to be on a toggle layer
 * Using Keypad number keycodes for "10-key"
+
+[Layout](http://www.keyboard-layout-editor.com/#/gists/062d2b3404ce8acd15d53263c040c6ea)

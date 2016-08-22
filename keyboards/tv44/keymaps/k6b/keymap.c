@@ -50,16 +50,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   * |------------------------------------------------------------------------------|
   * | Prgm    |  A  |  O  |  E  |  U  |  I  |  D  |  H  |  T  |  N  |  S  |   Prgm |
   * |------------------------------------------------------------------------------|
-  * | Shift      |  ;  |  Q  |  J  |  K  |  X  |  B  |  M  |  W  |  V  |  Z  |Hack |
+  * | Shift      |  ;  |  Q  |  J  |  K  |  X  |  B  |  M  |  W  |  V  |  Z  |Shift|
   * |------------------------------------------------------------------------------|
-  * | Ctrl    | Hack   | Debug| Enter        | Space    | Alt  | Shift  |     Lock |
+  * | Ctrl    | Hack   | Debug| Enter        | Space    | Alt  | Hack   |     Lock |
   * `------------------------------------------------------------------------------'
   */
   [_DV] = {
     {KC_TAB,  KC_SLSH, KC_COMM, KC_DOT,  KC_P,    KC_Y,    KC_F,    KC_G,    KC_C,    KC_R,    KC_L,    KC_BSPC },
     {MO(_L1), KC_A,    KC_O,    KC_E,    KC_U,    KC_I,    KC_D,    KC_H,    KC_T,    KC_N,    KC_S,    MO(_L1) },
-    {KC_LSFT, KC_SCLN, KC_Q,    KC_J,    KC_K,    KC_X,    KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,    MO(_L2) },
-    {KC_LCTL, MO(_L2), KC_LGUI, KC_ENT,  XXXXXXX, XXXXXXX, XXXXXXX, KC_SPC,  KC_RALT, KC_RSFT, XXXXXXX, TG(_L3) }
+    {KC_LSFT, KC_SCLN, KC_Q,    KC_J,    KC_K,    KC_X,    KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,    KC_RSFT },
+    {KC_LCTL, MO(_L2), KC_LGUI, KC_ENT,  XXXXXXX, XXXXXXX, XXXXXXX, KC_SPC,  KC_RALT, MO(_L2), XXXXXXX, TG(_L3) }
   },
   /* Colemak
   * ,------------------------------------------------------------------------------.
@@ -82,35 +82,35 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   * ,------------------------------------------------------------------------------.
   * |  `  |  !  |  @  |  #  |  $  |  %  |  ^  |  &  |  *  |  (  |  )  |      Del   |
   * |------------------------------------------------------------------------------|
-  * |         |  \  |  '  |  -  |  =  |  [  |  ]  |Left | Up  |Down |Right|        |
+  * |         |  \  |  '  |  -  |  =  |  [  |  ]  |  ←  |  ↓  |  ↑  |  →  |        |
   * |------------------------------------------------------------------------------|
-  * |            | Esc |     |Print|     |     |     |Stop |Play |Prev |Next |Shift|
+  * |            | Esc |     |Print|     |     |     |Prev |Stop |Play |Next |Shift|
   * |------------------------------------------------------------------------------|
-  * |         | Cmd    |      |              |          |      |        |          |
+  * | Qwerty  | Dvorak|Colemak|              |          |      |        |          |
   * `------------------------------------------------------------------------------'
   */
   [_L1] = { /* LAYER 1 - PRGM */
     {KC_GRV,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_DEL  },
     {_______, KC_BSLS, KC_QUOT, KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______ },
-    {_______, KC_ESC,  _______, KC_PSCR, _______, _______, _______, KC_MSTP, KC_MPLY, KC_MPRV, KC_MNXT, KC_RSFT },
-    {_______, KC_LGUI, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, _______, XXXXXXX, _______ }
+    {_______, KC_ESC,  _______, KC_PSCR, _______, _______, _______, KC_MPRV, KC_MSTP, KC_MPLY, KC_MNXT, _______ },
+    {QWERTY,  DVORAK,  COLEMAK, _______, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, _______, XXXXXXX, _______ }
   },
   /* HACK
   * ,------------------------------------------------------------------------------.
   * |  ~  |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |      Del   |
   * |------------------------------------------------------------------------------|
-  * |         |  |  |  "  |  _  |  +  |  [  |  ]  | PgUp|BlInc|VolUp| Home|        |
+  * |         |  |  |  "  |  _  |  +  |  {  |  }  |BlInc| PgUp| Home|VolUp|        |
   * |------------------------------------------------------------------------------|
-  * |            |     |     |     |     |     |     | PgDn|BlDec|VolDn| End |     |
+  * |            |     |     |     |     |     |     |BlDec| PgDn| End |VolDn| Mute|
   * |------------------------------------------------------------------------------|
-  * |         | Qwerty |Dvorak| Colemak      |          |BlTogg| Mute   |          |
+  * |         |        |      |              |          |BlTogg|        |          |
   * `------------------------------------------------------------------------------'
   */
   [_L2] = { /* LAYER 2 - HACK */
     {LSFT(KC_GRV), KC_1,  KC_2, KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_DEL  },
-    {_______, KC_PIPE, KC_DQUO, KC_UNDS, KC_PLUS, KC_LBRC, KC_RBRC, KC_PGUP, BL_INC,  KC_VOLU, KC_HOME, _______ },
-    {_______, _______, _______, _______, _______, _______, _______, KC_PGDN, BL_DEC,  KC_VOLD, KC_END,  _______ },
-    {_______, QWERTY,  DVORAK,  COLEMAK, XXXXXXX, XXXXXXX, XXXXXXX, _______, BL_TOGG, KC_MUTE, XXXXXXX, _______ }
+    {_______, KC_PIPE, KC_DQUO, KC_UNDS, KC_PLUS, LSFT(KC_LBRC), LSFT(KC_RBRC), BL_INC, BL_PGUP, KC_HOME, KC_VOLUP, _______ },
+    {_______, _______, _______, _______, _______, _______, _______,  BL_DEC, KC_PGDN,  KC_END, KC_VOLD, KC_MUTE },
+    {_______, _______, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, _______, BL_TOGG, _______, XXXXXXX, _______ }
   },
   /* LOCK
   * ,------------------------------------------------------------------------------.
