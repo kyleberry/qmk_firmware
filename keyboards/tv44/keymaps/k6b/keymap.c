@@ -16,9 +16,7 @@ extern keymap_config_t keymap_config;
 #define _L4 4
 
 // Macro name shortcuts
-#define QWERTY M(_QW)
-#define DVORAK M(_DV)
-#define COLEMAK M(_CM)
+#define MA_FKEY LT(_L4, KC_ESC)
 
 // Fillers to make layering more clear
 #define _______ KC_TRNS
@@ -38,10 +36,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   * `------------------------------------------------------------------------------'
   */
   [_QW] = {
-    {LT(_L4), KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC },
+    {MA_FKEY, KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC },
     {MO(_L1), KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, MO(_L1) },
-    {KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_F,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, MO(_L2) },
-    {KC_LCTL, MO(_L2), KC_LGUI, KC_ENT,  XXXXXXX, XXXXXXX, XXXXXXX, KC_SPC,  KC_RALT, KC_RSFT, XXXXXXX, TG(_L3) }
+    {KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_F,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT },
+    {KC_LCTL, MO(_L2), KC_LGUI, KC_ENT,  XXXXXXX, XXXXXXX, XXXXXXX, KC_SPC,  KC_RALT, MO(_L2), XXXXXXX, TG(_L3) }
   },
   /* PRGM
   * ,------------------------------------------------------------------------------.
@@ -72,9 +70,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   * `------------------------------------------------------------------------------'
   */
   [_L2] = { /* LAYER 2 - HACK */
-    {LSFT(KC_GRV), KC_1,  KC_2, KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_DEL  },
-    {_______, KC_PIPE, KC_DQUO, KC_UNDS, KC_PLUS, LSFT(KC_LBRC), LSFT(KC_RBRC), BL_INC, BL_PGUP, KC_HOME, KC_VOLUP, _______ },
-    {_______, KC_TAB,  KC_ESC,  _______, _______, _______, _______,  BL_DEC, KC_PGDN,  KC_END, KC_VOLD, KC_MUTE },
+    {KC_TILD, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,     KC_7,   KC_8,    KC_9,    KC_0,    KC_DEL  },
+    {_______, KC_PIPE, KC_DQUO, KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR,  BL_INC, KC_PGUP, KC_HOME, KC_VOLU, _______ },
+    {_______, KC_TAB,  KC_ESC,  _______, _______, _______, _______,  BL_DEC, KC_PGDN, KC_END,  KC_VOLD, KC_MUTE },
     {_______, _______, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, _______, BL_TOGG, _______, XXXXXXX, _______ }
   },
   /* LOCK
@@ -111,8 +109,4 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______ },
     {_______, _______, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, _______, XXXXXXX, _______ }
   }
-};
-
-const uint16_t PROGMEM fn_actions[] = {
-  [4] = ACTION_LAYER_TAP_KEY(4, KC_ESC)
 };
