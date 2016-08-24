@@ -16,6 +16,9 @@ extern keymap_config_t keymap_config;
 #define _L4 4
 
 // Macro name shortcuts
+#define MA_PRGM MO(_L1)
+#define MA_HACK MO(_L2)
+#define MA_TOGG TG(_L3)
 #define MA_FKEY LT(_L4, KC_ESC)
 
 // Fillers to make layering more clear
@@ -37,9 +40,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   */
   [_QW] = {
     {MA_FKEY, KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC },
-    {MO(_L1), KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, MO(_L1) },
+    {MA_PRGM, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, MA_PRGM },
     {KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_F,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT },
-    {KC_LCTL, MO(_L2), KC_LGUI, KC_ENT,  XXXXXXX, XXXXXXX, XXXXXXX, KC_SPC,  KC_RALT, MO(_L2), XXXXXXX, TG(_L3) }
+    {KC_LCTL, MA_HACK, KC_LGUI, KC_ENT,  XXXXXXX, XXXXXXX, XXXXXXX, KC_SPC,  KC_RALT, MA_HACK, XXXXXXX, MA_TOGG }
   },
   /* PRGM
   * ,------------------------------------------------------------------------------.
